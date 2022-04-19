@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import { useState } from "react";
 import Alerta from "../components/Alerta";
-import axios from 'axios'
+import clienteAxios from '../config/Axios.config'
 
 const Register = () => {
   const [nombre, setNombre] = useState("");
@@ -9,7 +9,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [rpassword, setRpassword] = useState("");
   const [alerta,setAlerta] = useState({})
-
+  const navigate = useNavigate()
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -26,12 +26,12 @@ const Register = () => {
       return
     }
     setAlerta({})
-     await axios.post("http://localhost:5000/register", {
+     await clienteAxios.post("/register", {
       name:nombre,
       email,
       password,
     });
-    window.location.href = 'http://localhost:3000/'
+    navigate('/perfil')
   }
   const {msg}  = alerta
 

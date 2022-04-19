@@ -21,7 +21,7 @@ const AuthProvider = ({children}) => {
             }
             try {
                 
-                const res = await clienteAxios("perfil",config)  
+                const res = await clienteAxios("/perfil",config)  
             setAuth(res.data)
             } catch (error) {
                 console.log(error.response)
@@ -50,7 +50,7 @@ const AuthProvider = ({children}) => {
             }
         }
         try {
-            const url = `perfil/${datos._id}`
+            const url = `/perfil/${datos._id}`
             await clienteAxios.put(url,datos,config)
             return{
                 msg:'Actualizaste tus datos correctamente'

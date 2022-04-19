@@ -1,7 +1,7 @@
 import { Link,useNavigate } from "react-router-dom";
 import {useState} from "react";
 import Alerta from "../components/Alerta";
-import axios from "axios"
+import clienteAxios from "../config/Axios.config"
 import useAuth from "../hooks/useAuth";
 
 const Login = () => {
@@ -18,7 +18,7 @@ const Login = () => {
       return;
   }
   try {
-    const res = await axios.post("http://localhost:5000/login", {
+    const res = await clienteAxios.post("/login", {
       email,
       password,
     });
