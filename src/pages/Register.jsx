@@ -26,11 +26,16 @@ const Register = () => {
       return
     }
     setAlerta({})
-     await clienteAxios.post("/register", {
+    try {
+       await clienteAxios.post("/register", {
       name:nombre,
       email,
       password,
     });
+    } catch (error) {
+      console.log(error)
+    }
+    
     navigate('/perfil')
   }
   const {msg}  = alerta
