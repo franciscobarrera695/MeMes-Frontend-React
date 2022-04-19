@@ -26,7 +26,7 @@ const Register = () => {
       return
     }
     setAlerta({})
-     await clienteAxios.post("/api/register", {
+     await clienteAxios.post("/register", {
       name:nombre,
       email,
       password,

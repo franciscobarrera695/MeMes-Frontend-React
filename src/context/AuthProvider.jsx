@@ -77,7 +77,7 @@ const AuthProvider = ({children}) => {
             }
         }
         try {
-            const url = 'actualizar-password/'
+            const url = '/actualizar-password'
             const res = await clienteAxios.put(url,datos,config)
             return {
                 msg:res.data.msg
