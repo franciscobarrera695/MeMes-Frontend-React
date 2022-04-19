@@ -81,7 +81,7 @@ console.log(publicacion)
     const confirmar = window.confirm('Confirmas que deseas Eliminar')
     if(confirmar){
       try {
-        const {data} = await axios.delete(`http://localhost:5000/api/post/${id}`,config)
+         await axios.delete(`http://localhost:5000/api/post/${id}`,config)
 
         const pacienteActualizado = publicaciones.filter(publicacionState => publicacionState._id !== id)
         
