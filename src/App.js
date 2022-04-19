@@ -18,6 +18,7 @@ import {PostProvider} from './context/PostProvider'
 
 
 function App() {
+
   return (
     <BrowserRouter>
     <AuthProvider>

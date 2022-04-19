@@ -1,5 +1,5 @@
 import {useState,useEffect,createContext} from "react";
-import axios from "axios";
+import clienteAxios from '../config/Axios.config'
 
 const AuthContext = createContext()
 
@@ -20,8 +20,8 @@ const AuthProvider = ({children}) => {
                 }
             }
             try {
-                const url = "http://localhost:5000/perfil"
-                const res = await axios(url,config)  
+                
+                const res = await clienteAxios("perfil",config)  
             setAuth(res.data)
             } catch (error) {
                 console.log(error.response)
@@ -50,8 +50,8 @@ const AuthProvider = ({children}) => {
             }
         }
         try {
-            const url = `http://localhost:5000/perfil/${datos._id}`
-            await axios.put(url,datos,config)
+            const url = `perfil/${datos._id}`
+            await clienteAxios.put(url,datos,config)
             return{
                 msg:'Actualizaste tus datos correctamente'
             }
@@ -77,8 +77,8 @@ const AuthProvider = ({children}) => {
             }
         }
         try {
-            const url = 'http://localhost:5000/actualizar-password/'
-            const res = await axios.put(url,datos,config)
+            const url = 'actualizar-password/'
+            const res = await clienteAxios.put(url,datos,config)
             return {
                 msg:res.data.msg
             }

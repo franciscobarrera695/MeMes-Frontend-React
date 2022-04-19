@@ -1,4 +1,4 @@
-import axios from "axios";
+import clienteAxios from '../config/Axios.config'
 import { createContext, useState, useEffect } from "react";
 
 
@@ -21,7 +21,7 @@ export const PostProvider = ({ children }) => {
                     "x-access-token":token
                 }
             }
-            const res = await axios('http://localhost:5000/api/post',config)
+            const res = await clienteAxios('post',config)
               setPublicaciones(res.data)
           
           } catch (error) {
@@ -41,14 +41,14 @@ console.log(publicacion)
             }
         }
     if(publicacion.id){
-      const res = await axios.put(`http://localhost:5000/api/post/${publicacion.id}`,publicacion,config)
+      const res = await clienteAxios.put(`api/post/${publicacion.id}`,publicacion,config)
 
       const publicacionesActualizadas = publicaciones.map(publicacionState => publicacionState._id === res.data._id ? res.data : publicacionState)
       setPublicaciones(publicacionesActualizadas)
     }else{
       try {
         
-        const res = await axios.post('http://localhost:5000/api/post',publicacion,config)
+        const res = await clienteAxios.post('api/post',publicacion,config)
         const {user_id,...nuevaData} = res.data
       setPublicaciones([nuevaData,...publicaciones])
         
@@ -81,7 +81,7 @@ console.log(publicacion)
     const confirmar = window.confirm('Confirmas que deseas Eliminar')
     if(confirmar){
       try {
-         await axios.delete(`http://localhost:5000/api/post/${id}`,config)
+         await clienteAxios.delete(`api/post/${id}`,config)
 
         const pacienteActualizado = publicaciones.filter(publicacionState => publicacionState._id !== id)
         
