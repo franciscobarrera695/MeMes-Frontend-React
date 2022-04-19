@@ -30,7 +30,7 @@ const Login = () => {
       window.location.href = 'http://localhost:3000/perfil';*/
     
   } catch (e) {
-    setAlerta({msg:e.response.data.message,error:true})
+    setAlerta({msg:e.response,error:true})
   }
 }
   const {msg}  = alerta
