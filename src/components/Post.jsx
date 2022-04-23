@@ -20,12 +20,13 @@ const Post = ({ publicacion }) => {
       </p>
       <p className="font-bold uppercase text-indigo-600 my-2">
         imagen:{" "}
-        <span className="font-semibold normal-case text-black">{image}</span>
+        <img src={image.url} alt="" />
+        <span className="font-semibold normal-case text-black">{image.url}</span>
       </p>
       <p className="font-bold uppercase text-indigo-600 my-2">
         Dia:{" "}
         <span className="font-semibold normal-case text-black">
-          {formaterFecha(created_at)}
+          {formaterFecha(created_at)} 
         </span>
       </p>
       <div className="flex justify-between my-5">

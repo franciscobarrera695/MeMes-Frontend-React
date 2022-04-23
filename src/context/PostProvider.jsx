@@ -47,15 +47,23 @@ console.log(publicacion)
       setPublicaciones(publicacionesActualizadas)
     }else{
       try {
+        const configImg={
+          headers:{
+            "Content-Type":"multipart/form-data",
+            "x-access-token":token,
+            
+        }
+        }
+        const form = new FormData()
+        for (const key in publicacion) {
+          form.append(key,publicacion[key])
+          }
         
-        const res = await clienteAxios.post('/post',publicacion,config)
+        const res = await clienteAxios.post('/post',form,configImg)
         const {user_id,...nuevaData} = res.data
       setPublicaciones([nuevaData,...publicaciones])
-        
-        
-
-
-       
+          
+          
     } catch (error) {
         console.log(error)
     }
