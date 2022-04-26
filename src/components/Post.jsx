@@ -20,8 +20,8 @@ const Post = ({ publicacion }) => {
       </p>
       <p className="font-bold uppercase text-indigo-600 my-2">
         imagen:{" "}
-        <img src={image.url} alt="" />
-        <span className="font-semibold normal-case text-black">{image.url}</span>
+        <img src={image.url} alt="" className="w-auto"/>
+        <span className="font-semibold normal-case text-black"></span>
       </p>
       <p className="font-bold uppercase text-indigo-600 my-2">
         Dia:{" "}
@@ -32,14 +32,14 @@ const Post = ({ publicacion }) => {
       <div className="flex justify-between my-5">
         <button
           type="button"
-          className=" bg-indigo-600 py-3 px-10 text-white uppercase font-bold cursor-pointer transition-colors rounded-xl hover:bg-indigo-800 shadow-lg shadow-indigo-500/50 "
+          className=" bg-indigo-600 py-3 px-6 text-white uppercase font-bold cursor-pointer transition-colors rounded-xl hover:bg-indigo-800 shadow-lg shadow-indigo-500/50 "
           onClick={() => setEdicion(publicacion)}
         >
           Editar
         </button>
         <button
           type="button"
-          className=" bg-red-600 py-3 px-10 text-white uppercase font-bold cursor-pointer transition-colors rounded-xl hover:bg-red-800 shadow-lg shadow-red-500/50 "
+          className=" bg-red-600 py-3 px-6 text-white uppercase font-bold cursor-pointer transition-colors rounded-xl hover:bg-red-800 shadow-lg shadow-red-500/50 "
           onClick={()=>eliminarPublicacion(_id)}        
         >
           Eliminar
