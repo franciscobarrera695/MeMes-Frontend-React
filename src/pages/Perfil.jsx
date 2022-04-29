@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Perfil = () => {
+  
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const { auth,actualizarImagenPerfil } = useAuth();
   const [image,setImage] = useState([])
@@ -30,7 +31,9 @@ const Perfil = () => {
     e.preventDefault()
     actualizarImagenPerfil({image})
   }
-
+  if(!image){
+    window.location.reload();
+  }
   
   return (
     <>
