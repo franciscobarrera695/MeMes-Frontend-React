@@ -20,7 +20,7 @@ const Post = ({ publicacion }) => {
       </p>
       <p className="font-bold uppercase text-indigo-600 my-2">
         imagen:{" "}
-        <img src={image.url} alt="" className="w-auto"/>
+        {image && <img src={image.url} alt="" className="w-auto"/>}
         <span className="font-semibold normal-case text-black"></span>
       </p>
       <p className="font-bold uppercase text-indigo-600 my-2">

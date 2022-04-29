@@ -39,7 +39,7 @@ const Perfil = () => {
           <img
           onClick={handleClick}
             className="w-40"
-            src="https://i0.wp.com/www.repol.copl.ulaval.ca/wp-content/uploads/2019/01/default-user-icon.jpg"
+            src={ auth.image?.url || "https://i0.wp.com/www.repol.copl.ulaval.ca/wp-content/uploads/2019/01/default-user-icon.jpg " }
             alt="Perfil"
           />
 
