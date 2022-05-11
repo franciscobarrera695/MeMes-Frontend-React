@@ -106,8 +106,7 @@ const AuthProvider = ({ children }) => {
       for (const key in datos) {
         form.append(key, datos[key]);
       }
-      console.log(datos)
-      console.log(form)
+    
       const url = "/actualizar-imagen-perfil";
       const res = await clienteAxios.put(url, form, configImg);
       return {
@@ -115,6 +114,7 @@ const AuthProvider = ({ children }) => {
       };
     } catch (error) {
       console.log(error)
+      return window.alert('Por favor,Primero seleccione una imagen')
     }
   };
 

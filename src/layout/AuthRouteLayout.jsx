@@ -16,7 +16,7 @@ const AuthRouteLayout = () => {
       
     
     <Header/>
-    {auth?._id ? (
+    {auth._id ? (
     <main className="container mx-auto mt-10">
 
     

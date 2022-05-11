@@ -1,7 +1,7 @@
 import usePost from "../hooks/usePost";
 
 const Post = ({ publicacion }) => {
-  const { setEdicion,eliminarPublicacion } = usePost();
+  const { setEdicion,eliminarPublicacion,cargando } = usePost();
 
   const { title, image, created_at,_id} = publicacion;
 
@@ -11,7 +11,9 @@ const Post = ({ publicacion }) => {
       nuevaFecha
     );
   };
-
+  if(cargando){
+    return "cargando"
+  }
   return (
     <div className="mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl">
       <p className="font-bold uppercase text-indigo-600 my-2">

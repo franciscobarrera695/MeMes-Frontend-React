@@ -5,7 +5,7 @@ import Post from './Post'
 
 const ListPost = () => {
   const {publicaciones} = usePost()
- 
+  
   return (
     <>
       {publicaciones.length ? (

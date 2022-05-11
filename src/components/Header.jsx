@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
 import useAuth from "../hooks/useAuth"
-import usePost from "../hooks/usePost"
+
 
 
 
 const Header = () => {
-    const {resetPublicaciones} = usePost()
+    
     const {cerrarSesion} = useAuth()
     
 
@@ -18,11 +18,11 @@ const Header = () => {
             </h1>
             <nav className="flex flex-col items-center lg:flex-row gap-4 pt-3 ">
                 <Link to="/inicio" className="text-white text-sm uppercase font-bold">Inicio</Link>
-                <Link to="/perfil" className="text-white text-sm uppercase font-bold">Perfil</Link>
+                <Link to="/inicio/perfil" className="text-white text-sm uppercase font-bold">Perfil</Link>
                 <button
                 type="button"
                 className="text-white text-sm uppercase font-bold"
-                onClick={() => { cerrarSesion(); resetPublicaciones()}}
+                onClick={() => { cerrarSesion();}}
                 >Cerrar Sesion</button>
             </nav>
         </div>

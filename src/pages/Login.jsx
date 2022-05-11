@@ -11,6 +11,7 @@ const Login = () => {
   const [alerta,setAlerta] = useState({})
   const navigate = useNavigate()
 
+
   const handleSubmit = async e => {
     e.preventDefault()
     if([email,password].includes("")){
@@ -24,13 +25,14 @@ const Login = () => {
     });
     sessionStorage.setItem('x-access-token', res.data.token);
     setAuth(res.data)
-    navigate('/perfil')
+    navigate('/inicio')
    /* if(res.status === 200){
       alert(res.data.message)
       window.location.href = 'http://localhost:3000/perfil';*/
     
   } catch (e) {
-    setAlerta({msg:e.response,error:true})
+    setAlerta({msg:e.response.data,error:true})
+    
   }
 }
   const {msg}  = alerta

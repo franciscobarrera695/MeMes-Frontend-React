@@ -37,13 +37,13 @@ const CambiarPassword = () => {
     <>
       <nav>
         <Link
-          to="/perfil/configuracion/editar-perfil"
+          to="/inicio/configuracion/editar-perfil"
           className="font-bold uppercase text-gray-400 mx-2"
         >
           Perfil
         </Link>
         <Link
-          to="/perfil/configuracion/cambiar-password"
+          to="/inicio/configuracion/cambiar-password"
           className="font-bold uppercase text-gray-400"
         >
           Cambiar Password
