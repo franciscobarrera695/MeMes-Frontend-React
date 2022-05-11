@@ -1,7 +1,7 @@
 import usePost from "../hooks/usePost";
 
 const Post = ({ publicacion }) => {
-  const { setEdicion,eliminarPublicacion } = usePost();
+  const { setEdicion,eliminarPublicacion,cargando } = usePost();
 
   const { title, image, created_at,_id} = publicacion;
 
@@ -11,7 +11,9 @@ const Post = ({ publicacion }) => {
       nuevaFecha
     );
   };
-
+  if(cargando){
+    return "cargando"
+  }
   return (
     <div className="mx-5 my-10 bg-white shadow-md px-5 py-10 rounded-xl">
       <p className="font-bold uppercase text-indigo-600 my-2">
@@ -20,25 +22,26 @@ const Post = ({ publicacion }) => {
       </p>
       <p className="font-bold uppercase text-indigo-600 my-2">
         imagen:{" "}
-        <span className="font-semibold normal-case text-black">{image}</span>
+        {image && <img src={image.url} alt="" className="w-auto"/>}
+        <span className="font-semibold normal-case text-black"></span>
       </p>
       <p className="font-bold uppercase text-indigo-600 my-2">
         Dia:{" "}
         <span className="font-semibold normal-case text-black">
-          {formaterFecha(created_at)}
+          {formaterFecha(created_at)} 
         </span>
       </p>
       <div className="flex justify-between my-5">
         <button
           type="button"
-          className=" bg-indigo-600 py-3 px-10 text-white uppercase font-bold cursor-pointer transition-colors rounded-xl hover:bg-indigo-800 shadow-lg shadow-indigo-500/50 "
+          className=" bg-indigo-600 py-3 px-6 text-white uppercase font-bold cursor-pointer transition-colors rounded-xl hover:bg-indigo-800 shadow-lg shadow-indigo-500/50 "
           onClick={() => setEdicion(publicacion)}
         >
           Editar
         </button>
         <button
           type="button"
-          className=" bg-red-600 py-3 px-10 text-white uppercase font-bold cursor-pointer transition-colors rounded-xl hover:bg-red-800 shadow-lg shadow-red-500/50 "
+          className=" bg-red-600 py-3 px-6 text-white uppercase font-bold cursor-pointer transition-colors rounded-xl hover:bg-red-800 shadow-lg shadow-red-500/50 "
           onClick={()=>eliminarPublicacion(_id)}        
         >
           Eliminar

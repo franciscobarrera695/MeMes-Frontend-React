@@ -1,14 +1,14 @@
 import { Outlet,Navigate } from "react-router-dom"
 import useAuth from "../hooks/useAuth"
 import Header from "../components/Header"
-import Spinner from "../components/Spinner"
+
 
 const AuthRouteLayout = () => {
   
   const {auth,cargando} = useAuth()
 
   if(cargando){
-    return <Spinner/>
+    return "cargando"
   }
   return (
       
@@ -16,7 +16,7 @@ const AuthRouteLayout = () => {
       
     
     <Header/>
-    {auth?._id ? (
+    {auth._id ? (
     <main className="container mx-auto mt-10">
 
     

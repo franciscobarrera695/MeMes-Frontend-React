@@ -5,7 +5,7 @@ import usePost from "../hooks/usePost"
 const Form = () => {
 
     const [nombre,setNombre] = useState('')
-    const [imagen,setImagen] = useState('')
+    const [imagen,setImagen] = useState([])
     const [id,setId] = useState(null)
 
 
@@ -22,10 +22,14 @@ const Form = () => {
     },[publicacion])
 
 
-
+    const handleChange = e =>{
+        e.preventDefault()
+        setImagen(e.target.files[0])}
     const handleSubmit = e => {
         e.preventDefault()
-        if([nombre,imagen].includes('')){
+      
+        e.preventDefault()
+        if(!nombre){
             setAlerta({msg:'Todos los campos son obligatorios',error:true})
             return;
         }
@@ -36,7 +40,7 @@ const Form = () => {
             title:nombre,image:imagen,id
         })
         setNombre('')
-        setImagen('')
+        setImagen([])
         setId('')
     }
     const {msg} = alerta
@@ -53,6 +57,7 @@ const Form = () => {
     onSubmit={handleSubmit}
     action="" 
     method=""
+    
     className="bg-white py-10 px-5 mb-10 lg:mb-0 shadow-md rounded-md">
         <div className="mb-5">
             <label className="text-gray-700 uppercase font-bold">Post</label>
@@ -61,7 +66,7 @@ const Form = () => {
         <div className="mb-5">
             <label className="text-gray-700 uppercase font-bold">Image</label>
             
-            <input  id="meme" type="text" placeholder="agrega una descripcion..." className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md" value={imagen} onChange={e=>setImagen(e.target.value)}/>
+            <input  name="image" type="file" placeholder="agrega una descripcion..." className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"  onChange={handleChange}/>
         </div>
         <input type="submit" value={id?'Guardar Cambios ':"Agregar Publicacion"} className=" bg-indigo-600 w-full p-3 text-white uppercase font-bold cursor-pointer transition-colors rounded-xl hover:bg-indigo-800 shadow-lg shadow-indigo-500/50 "/>
     </form>

@@ -7,7 +7,7 @@ import Register from "./pages/Register"
 import ConfirmEmail from "./pages/ConfirmEmail";
 import ResetPassword from "./pages/ResetPassword";
 import Perfil from "./pages/Perfil";
-
+import Inicio from "./pages/Inicio"
 //route/config
 import EditarPerfil from "./pages/conf/EditarPerfil";
 import CambiarPassword from "./pages/conf/CambiarPassword";
@@ -30,8 +30,9 @@ function App() {
           <Route path="reset-password" element={<ResetPassword/>}/>
           <Route path="confirm/:id" element={<ConfirmEmail/>}/>
         </Route>
-       <Route path="/perfil" element={<AuthRouteLayout/>}>
-        <Route index element={<Perfil/>}/>
+       <Route path="/inicio" element={<AuthRouteLayout/>}>
+        <Route index element={<Inicio/>}/>
+        <Route path="perfil" element={<Perfil/>}/>
         <Route path="configuracion/cambiar-password" element={<CambiarPassword/>}/>
         <Route path="configuracion/editar-perfil" element={<EditarPerfil/>}/>
        </Route>
